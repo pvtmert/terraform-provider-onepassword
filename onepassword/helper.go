@@ -32,7 +32,7 @@ func emailValidateDiag() schema.SchemaValidateDiagFunc {
 	return func(v interface{}, path cty.Path) diag.Diagnostics {
 		diags := stringDiag()(v, path)
 		val, _ := v.(string)
-		
+
 		emailRegexp := regexp.MustCompile(
 			"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}" +
 				"[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
@@ -41,7 +41,7 @@ func emailValidateDiag() schema.SchemaValidateDiagFunc {
 			diags = append(diags, diag.Diagnostic{
 				Severity:      diag.Error,
 				Summary:       "Value is not email",
-				Detail:   	   fmt.Sprintf("%s is not email", val),
+				Detail:        fmt.Sprintf("%s is not email", val),
 				AttributePath: path,
 			})
 		}
@@ -78,7 +78,7 @@ func stringInSliceDiag(ss []string, empty bool) schema.SchemaValidateDiagFunc {
 				diags = append(diags, diag.Diagnostic{
 					Severity:      diag.Error,
 					Summary:       "Value has incorect value",
-					Detail:        fmt.Sprintf("%s one from next list (%s)", val, strings.Join(ss,",")),
+					Detail:        fmt.Sprintf("%s one from next list (%s)", val, strings.Join(ss, ",")),
 					AttributePath: path,
 				})
 			}

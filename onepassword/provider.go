@@ -59,6 +59,7 @@ func Provider() *schema.Provider {
 		ResourcesMap: map[string]*schema.Resource{
 			"onepassword_group":                 resourceGroup(),
 			"onepassword_group_member":          resourceGroupMember(),
+			"onepassword_vault_member":          resourceVaultMember(),
 			"onepassword_item_common":           resourceItemCommon(),
 			"onepassword_item_software_license": resourceItemSoftwareLicense(),
 			"onepassword_item_identity":         resourceItemIdentity(),
