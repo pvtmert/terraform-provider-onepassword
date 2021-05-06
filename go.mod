@@ -1,4 +1,4 @@
-module github.com/pvtmert/terraform-provider-onepassword
+module github.com/mubi/terraform-provider-onepassword
 
 go 1.12
 
